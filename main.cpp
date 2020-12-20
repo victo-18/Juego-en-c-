@@ -2,6 +2,10 @@
 #include<conio.h>
 //#include <iostream>
 #include<windows.h>
+#define ARRIBA 72
+#define ABAJO 80
+#define DERECHA 77
+#define IZQUIERDA 75
 
 //Posiciona en pantalla 
 void gotoxy(int x,int y)
@@ -37,21 +41,8 @@ int main()
 	bool game_Over = false;
 	while(!game_Over)
 	{
-	//	gotoxy(x,y);
-	//	printf("*");
 		
-	   if(kbhit())
-	   {
-		 char tecla = getch();
-		 gotoxy(x,y);
-		 printf(" ");
-		 if (tecla == 'j') x--;
-		 if(tecla == 'l') x++;
-		 if(tecla == 'i') y--;
-		 if(tecla == 'k') y++;
-			gotoxy(x,y);
-		printf("*");
-     	}
+	   
 		Sleep(50);   
    }
    
