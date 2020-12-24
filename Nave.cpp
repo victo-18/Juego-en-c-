@@ -4,6 +4,7 @@
 #include<conio.h>
 #include <iostream>
 #include<windows.h>
+//movimiento de teclado
 #define ARRIBA 72
 #define ABAJO 80
 #define DERECHA 77

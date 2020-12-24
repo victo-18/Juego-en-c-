@@ -3,7 +3,7 @@ class  Nave{
 	private:
 	int x,y;
 	int energia;
-	int vidas;
+	int vidas=0;
 	public:
 		Nave();
 		~Nave();
