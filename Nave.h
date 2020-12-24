@@ -6,7 +6,7 @@ class  Nave{
 	public:
 		Nave();
 		~Nave();
-		Nave(int_x,int _y);
+		Nave(int _x ,int _y);
 		void pintarNave();
 		void borrar();
 		void mover();

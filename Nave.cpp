@@ -1,17 +1,25 @@
 #include<iostream>
 #include"Nave.h"
+#include<stdio.h>
+#include<conio.h>
+#include <iostream>
+#include<windows.h>
+#define ARRIBA 72
+#define ABAJO 80
+#define DERECHA 77
+#define IZQUIERDA 75
 using namespace std;
 
-Nave::Nave();
-Nave::~Nave();
+Nave::Nave(){};
+Nave::~Nave(){} ;
 Nave::Nave(int _x, int _y)
 {
-	this-> x=_x;
-	this_> y=_y;
+	 x=_x;
+	 y=_y;
 }
-void Nave::pintaNave()
+void Nave::pintarNave()
 {
-	gotoxy(x,y);}
+	gotoxy(x,y);
 	printf("  %c",30);
 	gotoxy(x,y+1);
 	printf(" %c%c%c", 40,207,41);
