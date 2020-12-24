@@ -12,29 +12,31 @@ using namespace std;
 
 Nave::Nave(){};
 Nave::~Nave(){} ;
-Nave::Nave(int _x, int _y)
+Nave::Nave(int _x, int _y, int _energia, int _vidas)
 {
-	 x=_x;
-	 y=_y;
+	 x =_x;
+	 y =_y;
+	 energia = _energia;
+	 vidas = _vidas;
 }
 void Nave::pintarNave()
 {
 	gotoxy(x,y);
-	printf("  %c",30);
+	printf("  %c ",30);
 	gotoxy(x,y+1);
-	printf(" %c%c%c", 40,207,41);
+	printf(" %c%c%c ", 40,207,41);
 	gotoxy(x,y+2);
-	printf(" %c%c %c%c", 30,190,30);
+	printf(" %c%c%c ", 30,190,30);
 	
 }
 void Nave::borrar()
 {
 	gotoxy(x,y);
-	printf("     ");
+	printf("         ");
 	gotoxy(x,y+1);
-	printf("     ");
+	printf("         ");
 	gotoxy(x,y+2);
-	printf("     ");
+	printf("         ");
 
 }
 void Nave::mover()
@@ -44,11 +46,13 @@ void Nave::mover()
 		 char tecla = getch();
 		 gotoxy(x,y);
 		 borrar();
-		 if (tecla == IZQUIERDA) x--;
-		 if(tecla == DERECHA) x++;
-		 if(tecla == ARRIBA) y--;
-		 if(tecla == ABAJO) y++;
+		 if (tecla == IZQUIERDA && x > 3)  x--;
+		 if(tecla == DERECHA && x+6 < 77) x++;
+		 if(tecla == ARRIBA && y > 4) y--;
+		 if(tecla == ABAJO && y +3 < 30) y++;
+		 if(tecla=='m')energia--;
 		 pintarNave();
+		 barraEnergia();
     }
 	   
 }
@@ -72,3 +76,85 @@ void Nave::OcultarCursor()
 	SetConsoleCursorInfo(hCon, &cci);
 	
 }
+void Nave::escenario()
+{
+	for(int i=2;i<78;i++)
+	{
+		gotoxy(i,3);
+		printf("%c",205);
+		gotoxy(i,30);
+		printf("%c",205);
+		for(int i=4;i<30;i++)
+		{
+			gotoxy(2,i);
+			printf("%c",186);
+			gotoxy(77,i);
+			printf("%c",186);
+		}
+		gotoxy(2,3);
+		printf("%c",201);
+		gotoxy(2,30);
+		printf("%c",200);
+		gotoxy(77,3);
+		printf("%c",187);
+		gotoxy(77,30);
+		printf("%c",188);
+	}
+}
+void Nave::barraEnergia()
+{
+	gotoxy(50,2);
+	printf("Vidas: %d",vidas);
+	gotoxy(64,2);
+	printf("Energia: ");
+	gotoxy(70,2);
+	printf("      ");
+	for(int i= 0;i < energia;i++)
+	{
+		gotoxy(70+i,2);
+		printf("%c",223);
+	}
+	
+}
+void Nave::morir()
+{
+	if(energia==0)
+	{
+		borrar();
+		gotoxy(x,y);
+		printf("   **   ");
+		gotoxy(x,y+1);
+		printf("  ****  ");
+		gotoxy(x,y+2);
+		printf("   **   ");
+		Sleep(200);
+		
+		borrar();
+		gotoxy(x,y);
+		printf(" * ** *");
+		gotoxy(x,y+1);
+		printf("  **** ");
+		gotoxy(x,y+2);
+		printf(" * ** *");
+		Sleep(200);
+		borrar();
+		vidas--;
+		energia =3;
+		barraEnergia();
+		pintarNave();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

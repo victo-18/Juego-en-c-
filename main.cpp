@@ -11,14 +11,17 @@ using namespace std;
 
 int main()
 {
-	 Nave nave1(7,7);
+	//escenario();
+	 Nave nave1(7,7,3,3);
 	nave1.OcultarCursor();
     //Nave nave1(7,7);
     nave1.pintarNave();
+    nave1.escenario();
+    nave1.barraEnergia();
 	bool game_Over = false;
 	while(!game_Over)
 	{
-		
+	   nave1.morir();
 	   nave1.mover();
 		Sleep(50);   
    }
