@@ -119,7 +119,7 @@ void Nave::barraEnergia()
 }
 void Nave::morir()
 {
-	if(energia==0)
+	if(energia==0 && vidas==0)
 	{
 		borrar();
 		gotoxy(x,y);
@@ -144,12 +144,44 @@ void Nave::morir()
 		barraEnergia();
 		pintarNave();
 	}
+	
+
 }
 
+void Nave::setCoordenadaX(int _x)
+{
+   x= _x;
+}
+int Nave::getCoordenadaX()
+{
+	return x;
+}
 
+void Nave::setCoordenadaY(int _y)
+{
+	y = _y;
+}
+int Nave::getCoordenadaY()
+{
+	return y;
+}
+void Nave::setVidas(int _vidas)
+{
+	vidas = _vidas;
+}
+int Nave::getVidas()
+{
+	return vidas;
+}
+void Nave::setEnergia(int _energia)
+{
+	energia = _energia;
+}
 
-
-
+int Nave::getEnergia()
+{
+	return energia;
+}
 
 
 
