@@ -4,9 +4,11 @@ class  Nave{
 	
 	private:
 	int x,y;
-	int energia;
-	int vidas;
+	int energia =0 ;
+	int vidas=0;
+	
 	public:
+		
 		Nave();
 		~Nave();
 		Nave(int _x ,int _y, int _energia,int _vidas);

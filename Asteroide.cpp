@@ -5,11 +5,7 @@
 #include<stdlib.h>
 #include<windows.h>
 #include"Asteroide.h"
-//movimiento teclado
-#define ARRIBA 72
-#define ABAJO 80
-#define DERECHA 77
-#define IZQUIERDA 75
+
 using namespace std;
 
 Asteroide::Asteroide(){};
@@ -63,6 +59,13 @@ void Asteroide::colicion(class Nave &N)
 		x = rand()%71 + 4;
 		y =4;
 	}
+	/*
+	if(N.getEnergia()<1 && N.getVidas()<1 )
+    {
+
+	  cout<<"GAME OVER LOSER"<<endl;
+    }*/
+    
 }
 
 

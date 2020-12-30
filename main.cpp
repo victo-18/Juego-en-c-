@@ -15,7 +15,6 @@ int main()
 {
 
 	Nave nave1(7,7,3,3);
-	cout<<"soy "<<nave1.getEnergia()<<endl;
 	nave1.OcultarCursor();
     nave1.pintarNave();
     nave1.escenario();
@@ -52,14 +51,15 @@ int main()
 	   nave1.morir();
 	   nave1.mover();
 		Sleep(50);
-		
-		if(nave1.getEnergia()==0)
-		{
-			cout<<"GAME OVER LOSER"<<endl;
-			break;
-		   }  
-		   
-   }
+	  if(nave1.getEnergia()<=1 && nave1.getVidas()<=1 )
+       {
+
+	     cout<<"GAME OVER LOSER"<<endl;
+	     break;
+       }
+    }
+    
+    
     
 	return 0;
 }

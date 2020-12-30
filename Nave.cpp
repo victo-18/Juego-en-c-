@@ -119,7 +119,7 @@ void Nave::barraEnergia()
 }
 void Nave::morir()
 {
-	if(energia==0 && vidas==0)
+	if(energia >= 1 && vidas >= 1)
 	{
 		borrar();
 		gotoxy(x,y);
@@ -143,9 +143,10 @@ void Nave::morir()
 		energia =3;
 		barraEnergia();
 		pintarNave();
+		//cout<<"GAME OVER LOSER"<< endl;
 	}
 	
-
+    
 }
 
 void Nave::setCoordenadaX(int _x)
