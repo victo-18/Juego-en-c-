@@ -4,8 +4,8 @@ class  Nave{
 	
 	private:
 	int x,y;
-	int energia =0 ;
-	int vidas=0;
+	int energia;
+	int vidas;
 	
 	public:
 		

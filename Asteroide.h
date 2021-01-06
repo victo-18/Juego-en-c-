@@ -9,6 +9,10 @@ class Asteroide: public Nave
 	    Asteroide();
 	    ~Asteroide();
 	    Asteroide(int _x, int _y);
+	    void setCoorX(int _x);
+	    int getCoorX();
+	    void setCoorY(int _y);
+	    int getCoorY();
 	    void gotoxy(int x,int y);
 	    void pintarAsteroide();
 	    void moverAsteroide();

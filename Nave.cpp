@@ -10,7 +10,7 @@
 #define DERECHA 77
 #define IZQUIERDA 75
 using namespace std;
-
+//================ Constructores de la clase =====================================//
 Nave::Nave(){};
 Nave::~Nave(){} ;
 Nave::Nave(int _x, int _y, int _energia, int _vidas)
@@ -20,6 +20,7 @@ Nave::Nave(int _x, int _y, int _energia, int _vidas)
 	 energia = _energia;
 	 vidas = _vidas;
 }
+//================ Metodos de2 la clase ==============================================//
 void Nave::pintarNave()
 {
 	gotoxy(x,y);
@@ -33,11 +34,11 @@ void Nave::pintarNave()
 void Nave::borrar()
 {
 	gotoxy(x,y);
-	printf("         ");
+	printf("       ");
 	gotoxy(x,y+1);
-	printf("         ");
+	printf("       ");
 	gotoxy(x,y+2);
-	printf("         ");
+	printf("       ");
 
 }
 void Nave::mover()
@@ -51,7 +52,7 @@ void Nave::mover()
 		 if(tecla == DERECHA && x+6 < 77) x++;
 		 if(tecla == ARRIBA && y > 4) y--;
 		 if(tecla == ABAJO && y +3 < 30) y++;
-		 if(tecla=='m')energia--;
+		 //if(tecla=='m')energia--;
 		 pintarNave();
 		 barraEnergia();
     }
@@ -117,9 +118,10 @@ void Nave::barraEnergia()
 	}
 	
 }
+//Realizar cambio en funcion morir
 void Nave::morir()
 {
-	if(energia >= 1 && vidas >= 1)
+	if(energia == 0 && vidas == 0)
 	{
 		borrar();
 		gotoxy(x,y);
@@ -140,10 +142,10 @@ void Nave::morir()
 		Sleep(200);
 		borrar();
 		vidas--;
-		energia =3;
+		energia;
 		barraEnergia();
 		pintarNave();
-		//cout<<"GAME OVER LOSER"<< endl;
+	
 	}
 	
     

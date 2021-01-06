@@ -5,13 +5,14 @@
 #include<stdlib.h>
 #include<windows.h>
 #include"Asteroide.h"
- uisng namespace std;
+#include"Bala.h"
+ using namespace std;
  //============== constructores de la clase ========================================================//
  Bala::Bala(){};
  Bala::~Bala(){};
- Bala::Bala(int _x ,int _y): x(_x),Y(_y){};
+ Bala::Bala(int _x ,int _y): x(_x),y(_y){};
  //=============Metodos de la clase ================================================================//
- void Bala::setX()
+ void Bala::setX(int _x)
  {
  	x = _x;
  }
@@ -19,7 +20,7 @@
  {
  	return x;
  }
- vois Bala::setY()
+ void Bala::setY(int _y)
  {
  	y = _y;
  }
@@ -27,4 +28,39 @@
  {
  	return y;
  }
+ void Bala::mover()
+ {
+ 	gotoxy(x,y);
+ 	printf(" ");
+     y--;
+	 gotoxy(x,y);
+	 printf("*");
+ }
+  bool Bala::fuera()
+  {
+  	if(y==4)
+	  {
+	  	return true;
+	  }
+	  else 
+	  {
+	  	return false;
+	  }
+  }
+  
+ void Bala::gotoxy(int x,int y)
+{
+	HANDLE hCon;
+	hCon =  GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD dwPos;
+	dwPos.X = x;
+	dwPos.Y = y;
+	SetConsoleCursorPosition(hCon, dwPos);
+}
+
+
+ 
+ 
+ 
+ 
  
